@@ -3,66 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kledingmerk Launch</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        h1 {
-            color: #e64a19;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-        }
-
-        .form-container {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            margin: auto;
-            max-width: 700px;
-        }
-
-        iframe {
-            border: none;
-            width: 100%;
-            height: 500px;
-            border-radius: 8px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5em;
-            }
-
-            p {
-                font-size: 1em;
-            }
-        }
-    </style>
+    <title>Feedback Formulier</title>
 </head>
 <body>
-    <h1>Schrijf je in voor onze nieuwsbrief!</h1>
-    <p>Vul je e-mailadres in om op de hoogte te blijven van onze lancering.</p>
-    
-    <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfe7om2JN1QsDTKPYy60RY8kmQkYwPf6OabTrDA70b8LGQXzw/viewform?embedded=true" 
-                width="640" 
-                height="511" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">Laden…</iframe>
-    </div>
-    
-    <p>Bedankt voor je inschrijving!</p>
+    <h1>Feedback Formulier</h1>
+    <form name="feedback" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="feedback" />
+        <input name="name" type="text" placeholder="Je Naam" required />
+        <input name="email" type="email" placeholder="Je E-mail" required />
+        <textarea name="message" placeholder="Je Bericht" required></textarea>
+        <button type="submit">Verzend Feedback</button>
+    </form>
 </body>
 </html>
