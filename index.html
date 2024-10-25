@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kledingmerk Launch</title>
+</head>
+<body>
+    <h1>Schrijf je in voor onze nieuwsbrief!</h1>
+    <form id="emailForm">
+        <label for="email">E-mailadres:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Inschrijven">
+    </form>
+    <p id="message"></p>
+    
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Voorkom de standaard formulieractie
+            const email = document.getElementById('email').value;
+
+            // Verstuur het e-mailadres naar een externe server of API
+            fetch('https://example.com/api/submit-email', { // Vervang met jouw server of API
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').textContent = "Bedankt voor je inschrijving!";
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = "Er is een fout opgetreden. Probeer het later opnieuw.";
+            });
+        });
+    </script>
+</body>
+</html>
